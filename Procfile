@@ -1,1 +1,1 @@
-web: botanos main.py
+web: python main.py
