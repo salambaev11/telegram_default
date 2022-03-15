@@ -14,9 +14,7 @@ from telegram.files.document import Document
 from idauto import TOKEN
 from menu import main_menu_keyboard, resieve_air, resieve_oil, resieve_wash, ii_inline_menu , v_inline_menu, dt_inline_menu, o_inline_menu, wlenin_inline_menu, wsverdl_inline_menu,wperv_inline_menu,wokt_inline_menu,alen_inline_menu,aperv_inline_menu,asver_inline_menu,aokt_inline_menu
 from buttons import main_buttons, oil_buttons, wash_buttons,air_buttons
-import os
 
-PORT = int(os.environ.get('PORT',5000))
 
 
 OIL_REGEX = r"(?=("+(main_buttons[0])+r"))"# REGEX OF OIL
@@ -763,8 +761,5 @@ updater.dispatcher.add_handler(MessageHandler(#diesel
 
 updater.dispatcher.add_handler(CallbackQueryHandler(button))
 
-updater.start_webhook(listen="0.0.0.0",
-                        port=int(PORT),
-                        url_path=TOKEN)
-updater.bot.setWebhook(' https://botanos.herokuapp.com/' + '5110815131:AAHRfHqxUH7mkT1X4QASY1oWcgm6Cl8ROyI')
+updater.start_polling()
 updater.idle()
